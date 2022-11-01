@@ -1,0 +1,6 @@
+app_name: s3-test
+
+# Number of application instances to run in cloud.gov
+instances: 1
+memory_quota: 200M
+disk_quota: 1G

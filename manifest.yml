@@ -1,0 +1,15 @@
+---
+# To apply this manifest: cf push --vars-file vars.yml
+applications:
+  - name: ((app_name))
+    instances: ((instances))
+    buildpacks:
+      - python_buildpack
+    routes:
+      - route: python-s3.app.cloud.gov
+    timeout: 120
+    memory: ((memory_quota))
+    disk_quota: ((disk_quota))
+    health-check-type: http
+    health-check-http-endpoint: /
+    command: flask --app app run -h 0.0.0.0 -p $PORT
