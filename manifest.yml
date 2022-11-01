@@ -5,6 +5,8 @@ applications:
     instances: ((instances))
     buildpacks:
       - python_buildpack
+    services:
+      - s3-test
     routes:
       - route: python-s3.app.cloud.gov
     timeout: 120
