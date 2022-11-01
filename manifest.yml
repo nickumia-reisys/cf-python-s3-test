@@ -13,5 +13,5 @@ applications:
     memory: ((memory_quota))
     disk_quota: ((disk_quota))
     health-check-type: http
-    health-check-http-endpoint: /
+    health-check-http-endpoint: /health
     command: flask --app app run -h 0.0.0.0 -p $PORT
