@@ -20,13 +20,14 @@ def upload_to_s3(custom_text='Something special'):
     S3_HOST = os.environ.get('HOST_NAME')
     S3_BUCKET = os.environ.get('AWS_BUCKET_NAME')
     FILE_NAME = "test.txt"
+    PROXY = os.environ.get('https_proxy')
 
     s3 = boto3.client(
         's3',
         aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
         aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
         region_name=os.environ.get('REGION_NAME'),
-        config=Config(s3={'addressing_style': 'auto'})
+        config=Config(s3={'addressing_style': 'auto'}, proxies={'https': PROXY})
     )
 
     text_to_upload = 'Yay!  I\'m a file with the content...\n'
